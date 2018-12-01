@@ -4,136 +4,148 @@ $lightBg: white;
 $darkFont: black;
 $lightFont: white;
 
-
-
- %dark {
-    background-color: $darkBg;
-    color: $lightFont
+%dark {
+  background-color: $darkBg;
+  color: $lightFont;
 }
 
 %light {
-    background-color: $lightBg;
-    $color: $darkFont
+  background-color: $lightBg;
+  $color: $darkFont;
 }
 
-@mixin textShadow(){
-    text-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
-    border: 10px;
+@mixin textShadow() {
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
+  border: 10px;
 }
-
 
 body {
-    margin: 0%;
-    font-family: 'Helvetica';
+  margin: 0%;
+  font-family: "Helvetica";
+}
+
+.sub {
+  appearance: button;
+  margin-bottom: 0.4em;
+  padding: 0.35em;
+  background-color: $lightBg;
+  color: $darkFont;
+  text-decoration: none;
+  border-radius: 0.2em;
+  &:hover {
+    background-color: $darkBg;
+    color: $lightBg;
+  }
 }
 
 
 .bgimg {
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    z-index: -1;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
 }
 
 .headerCard {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url('/img/callout.jpg');
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/img/callout.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media only screen and (max-width: 768px) {
+    background-image: url("/img/callout.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
-    @media only screen and (max-width: 768px) {
-        background-image: url('/img/callout.jpg');
-        background-repeat: no-repeat;
-        background-size: auto;
-        background-position-x: 22%;
-        background-position-y: bottom;
-    }
+    background-size: auto;
+    background-position-x: 22%;
+    background-position-y: bottom;
+  }
 }
 
 header {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-        h1 {
-            font-size: 3rem;
-            color: $lightFont;
-            font-weight: normal;
-            margin: 0rem;
-            @include textShadow();
-            
-        }
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  h1 {
+    font-size: 3rem;
+    color: $lightFont;
+    font-weight: normal;
+    margin: 0rem;
+    @include textShadow();
+  }
 
-        p {
-            font-size: 1rem;
-            color: $lightFont;
-            margin-bottom: 1rem;
-            @include textShadow();
-        }
+  p {
+    font-size: 1rem;
+    color: $lightFont;
+    margin-bottom: 1rem;
+    @include textShadow();
+  }
 
-        .arrowDown {
-            color: $lightFont;
-            @include textShadow();
-            cursor: pointer;
-        }
+  .arrowDown {
+    color: $lightFont;
+    @include textShadow();
+    cursor: pointer;
+    &:hover {
+        color: $darkFont;
+      }
+  }
 }
 
 .main {
-    min-height: 100vh;
-    min-width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  & > section:nth-child(odd) {
+    @extend %dark;
+  }
+  & > section {
+    min-height: 33vh; // atleast as tall as 33% of the view port
+    width: 100%; // 100% of the parent which is full width of viewport
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    & > section:nth-child(odd) {
-        @extend %dark;
+    justify-content: center;
+    p {
+      padding-left: 0.8rem;
+      padding-right: 0.8rem;
     }
-    & > section {
-        min-height: 33vh; // atleast as tall as 33% of the view port
-        width: 100%; // 100% of the parent which is full width of viewport
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        p {
-            padding-left: .8rem;
-            padding-right: .8rem;
-        }
-    }
+  }
 }
 
 .intro {
-        h2 {
-            margin-top: .5rem;
-            margin-bottom: 0;
-        }
+  h2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+  }
 }
 
 .eventCard {
-    h2 {
-        margin: 0;
+  h2 {
+    margin: 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 0.4rem;
+
+      a {
+        text-decoration: underline;
+        color: $darkFont;
+      }
     }
-
-    ul {
-        list-style: none;
-        padding: 0;
-
-        li {
-            margin-bottom: .4rem;
-
-            a {
-                text-decoration: underline;
-                color: $darkFont;
-            }
-        }
-    }
+  }
 }
 
 .teamCard {
-    .tommyAvatar {
-        border-radius: 50%;
-    }
+  .tommyAvatar {
+    border-radius: 50%;
+  }
 }
-

@@ -110,7 +110,7 @@ header .arrowDown:hover {
   text-align: center;
 }
 
-.main > section {
+.main > * {
   min-height: 33vh;
   width: 100%;
   display: -webkit-box;
@@ -128,7 +128,7 @@ header .arrowDown:hover {
           justify-content: center;
 }
 
-.main > section p {
+.main > * p {
   padding-left: 0.8rem;
   padding-right: 0.8rem;
 }
